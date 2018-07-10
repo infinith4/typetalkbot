@@ -6,6 +6,7 @@ with open('typetalk_config.yml', 'r') as yml:
     typetalkToken = config['typetalk']['typetalkToken']
     topicId = config['typetalk']['topicId']
     payload = {'typetalkToken': typetalkToken}
-    r = requests.get('https://typetalk.com/api/v1/topics/' + topicId, params = payload)
+    postId = '18608871'
+    r = requests.post('https://typetalk.com/api/v1/topics/' + topicId + '/posts/' + postId + '/like', params = payload)
     print(r.status_code)
     print(r.json())
